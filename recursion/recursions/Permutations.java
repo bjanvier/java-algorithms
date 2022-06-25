@@ -7,8 +7,6 @@ public class Permutations {
 
     ArrayList<String> inputsList = new ArrayList<>();
 
-    //If the initial inputs has already been used and 
-    //pushed to inputsList
     String currentInput = "";
 
     public ArrayList<String> getInput(
@@ -61,10 +59,7 @@ public class Permutations {
                 currentIndex += 1;
             }
         }
-       /**
-       * currentInput.length()-3 for the 3 substring
-       * we previously had on the currentInput
-       */
+
         if (currentIndex >=  inputsList.size()) {
             searchComplete = true;
         }
