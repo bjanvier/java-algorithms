@@ -207,16 +207,9 @@ class CustomArrayList<T> extends ArrayProps<T> {
     }
 
     public T get(int index) {
-        T elt = null;
         if (index >= array.length - 1 || index < 0)
             throw new NoSuchElementException();
-        for (T item : array) {
-            if (item.equals(array[index])) {
-                elt = array[index];
-                break;
-            }
-        }
-        return elt;
+        return array[index];
     }
 
     public void set(int index, T element) {

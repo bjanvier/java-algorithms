@@ -17,7 +17,7 @@ public class Main {
         list.set(0, "Janvierr");
         list.addAll("nine", "ten", "eleven", "twelve", "thirteen", "Fourteen", "fifteen");
         System.out.println(list.get("One"));
-        System.out.println(list.get(0));
+        System.out.println(list.get(0) + "here");
         System.out.println(list.isEmpty());
         System.out.println(list.contains("Zero"));
         System.out.println(list.containsAll(new String[] { "Zero", "One", "Two2", "Three", "Four" }));
