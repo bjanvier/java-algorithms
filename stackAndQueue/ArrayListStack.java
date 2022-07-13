@@ -10,7 +10,6 @@ public class ArrayListStack<T> {
         if (array[array.length - 1] == null) {
             throw new NoSuchElementException();
         }
-
         T lastElement = array[array.length - 1];
         T[] newArray = (T[]) new Object[array.length - 1];
         int count = 0;
@@ -20,7 +19,6 @@ public class ArrayListStack<T> {
             count++;
         }
         array = newArray;
-
         return lastElement;
     }
 
