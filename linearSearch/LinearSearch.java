@@ -17,13 +17,9 @@ class LinearSearch {
      * iterating it
      */
     public BigName findName(int index) {
-        BigName javaScriptCoFounder = null;
-
-        if (bigNames[index] != null) {
-            javaScriptCoFounder = bigNames[index];
-        } else {
+        if (bigNames[index] == null) {
             throw new NoSuchElementException();
         }
-        return javaScriptCoFounder;
+        return bigNames[index];
     }
 }

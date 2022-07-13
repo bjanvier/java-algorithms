@@ -1,7 +1,6 @@
 package linearSearch;
 
 public class Main {
-
     public static void main(String[] args) {
         LinearSearch linearSearch = new LinearSearch();
         System.out.println("Binary Search without an array");
