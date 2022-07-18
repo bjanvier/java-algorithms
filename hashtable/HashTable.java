@@ -94,8 +94,10 @@ public class HashTable {
                 List<Object> bucket = new ArrayList<>();
                 bucket.add(arr[i]);
                 bucketList[h] = bucket;
-            } else if (!bucketList[h].contains(arr[i])) {
-                bucketList[h].add(arr[i]);
+            } else {
+                if (!bucketList[h].contains(arr[i])) {
+                    bucketList[h].add(arr[i]);
+                }
             }
         }
         return bucketList;

@@ -26,7 +26,25 @@ public class Main {
         for (int i = 0; i < lBuckets.length; i++) {
             if (lBuckets[i] != null) {
                 for (int j = 0; j < lBuckets[i].size(); j++) {
-                    System.out.print(lBuckets[i].get(j) + ", ");
+                    /**
+                     * when h = 1,
+                     * bucket[h] = [0:342, 1:"Janvier", 2:"Either Coding/Programming, or Soccer, Or
+                     * nothing"];
+                     * when h = 2,
+                     * bucket[h] = [];
+                     * when h = 3,
+                     * bucket[h] = [1234];
+                     * when h = 4,
+                     * bucket[h] = [0:"Zagabe",1:"Jesus is Our Savior"];
+                     * when h = 5,
+                     * bucket[h] = [0:false];
+                     * when h = 6,
+                     * bucket[h] = [];
+                     * and when h = 7,
+                     * bucket[h] = [0:true];
+                     * 
+                     */
+                    System.out.print(lBuckets[i].get(j));
                 }
             }
         }
