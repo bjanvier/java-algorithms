@@ -4,7 +4,7 @@ import java.util.*;
 import abstracts.ArrayProps;
 
 @SuppressWarnings("unchecked")
-class CustomArrayList<T> extends ArrayProps<T> {
+public final class CustomArrayList<T> extends ArrayProps<T> {
     public int size() {
         return array.length - 1;
     }
@@ -51,7 +51,6 @@ class CustomArrayList<T> extends ArrayProps<T> {
                 i++;
             }
             arr[index + 1] = element;
-
             int j = index + 2;
 
             while (j <= array.length) {
@@ -89,8 +88,8 @@ class CustomArrayList<T> extends ArrayProps<T> {
 
     public void remove(T element) {
         T[] arr = (T[]) new Object[array.length - 1];
-
         int i = 0;
+
         for (T elt : array) {
             if (!elt.equals(element)) {
                 arr[i] = elt;
@@ -103,7 +102,6 @@ class CustomArrayList<T> extends ArrayProps<T> {
     public void removeFirst() {
         T[] arr = (T[]) new Object[array.length - 1];
         int count = array.length - 1;
-
         for (int i = 0; i < count; i++) {
             // Already skipped the 1st element
             arr[i] = array[i + 1];
@@ -122,7 +120,6 @@ class CustomArrayList<T> extends ArrayProps<T> {
         if (index >= array.length) {
             throw new IndexOutOfBoundsException();
         }
-
         if (index == count) {
             removeFirst();
             return; // everything would be nullified if thus is commented out

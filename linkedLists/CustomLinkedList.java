@@ -10,9 +10,8 @@ class Node<T> {
     }
 }
 
+@SuppressWarnings("unchecked")
 public class CustomLinkedList<T> {
-
-    @SuppressWarnings("unchecked")
     int size = 0;
     private Node<T> node = new Node<>(null, null);
 
@@ -38,35 +37,21 @@ public class CustomLinkedList<T> {
     }
 
     public Node<T> generateNode(T item, Node<T> node) {
-        try {
-            if (node.data == null) {
-                node.data = item; // 1
-                // Meaning next may be null
-            } else if (node.next == null) {
-                System.out.println("node.next is null");
-                Node<T> nextNode = new Node<>(node.data, null);
-                node.next = nextNode;
-                node.data = item;
+        if (node.data == null) {
+            node.data = item;
 
-            } else if (item != node.next.data && size > 1) {
-                node.next.data = node.data;
-                node.data = item;
-            }
-
-            // TODO:
-            // Create a constructor that
-            // doesn't return both the data
-            // and the next node data.
-            // We only need the next data
-            // passed in the @next Object
-            // constructor below
-            Node<T> next = node; // node.next
-            node = new Node<>(item, next);
-
-            size++;
-        } catch (Exception e) {
-            System.err.println(e);
+            // Meaning next may be null
+        } else if (node.next == null) {
+            Node<T> nextNode = new Node<>(node.data, null);
+            node.next = nextNode;
+            node.data = item;
+        } else if (item != node.next.data && size > 1) {
+            node.next.data = node.data;
+            node.data = item;
         }
+        Node<T> next = node;
+        node = new Node<>(item, next);
+        size++;
         return node;
     }
 
@@ -81,20 +66,17 @@ public class CustomLinkedList<T> {
      * @param item
      * @param index
      */
-    @SuppressWarnings("unchecked")
     public void addAt(T item, int index) {
         if (size <= 1) {
             size = index;
             add(item);
         } else {
             if (index >= size) {
-                throw new NullPointerException();
+                throw new IndexOutOfBoundsException();
             }
-
             try {
-                // temporary array to persist changes
-                // until the item is merged into the current
-                // list
+                // temporary array to persist changes until
+                // the item is merged into the current list
                 T[] temp = (T[]) new Object[size + 1];
 
                 // Get all the nodes before
@@ -104,7 +86,6 @@ public class CustomLinkedList<T> {
                     temp[k] = get(k);
                     k++;
                 }
-
                 // Insert the item between
                 // index-1 and index+1
                 temp[index] = item;
@@ -114,12 +95,11 @@ public class CustomLinkedList<T> {
                 for (k = index; k < size; k++) {
                     temp[k + 1] = get(k);
                 }
-
-                // Update the node
+                // Update/Reset the node
                 node = new Node<>(null, null);
 
-                // Only the references of the node that comes before and after
-                // the @index will be updated
+                // Only the references of the node that comes
+                // before and after the @index will be updated
                 for (int ii = 0; ii < temp.length; ii++) {
                     add(temp[ii]);
                 }
@@ -135,8 +115,8 @@ public class CustomLinkedList<T> {
 
     public T getNext(int index, Node<T> node) {
         int count = 0;
-
         Node<T> n = node;
+
         while (index >= 1 && index >= count) {
             if (n.next == null) {
                 throw new NullPointerException();

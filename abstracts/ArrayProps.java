@@ -2,21 +2,36 @@ package abstracts;
 
 @SuppressWarnings("unchecked")
 public abstract class ArrayProps<T> {
-    public T[] array = (T[]) new Object[] {};
-
-    public ArrayProps() {
-    }
+    protected T[] array = (T[]) new Object[] {};
 
     public void push(T newValue) {
         T[] arr1 = (T[]) new Object[array.length + 1];
-        arr1[array.length] = newValue;
         int count = 0;
+        arr1[array.length] = newValue;
 
+        if (newValue == null) {
+            throw new NullPointerException();
+        }
         while (count < array.length) {
             arr1[count] = array[count];
             count++;
         }
         array = arr1;
+    }
+
+    public void push(T newValue, T[] arr) {
+        T[] arr1 = (T[]) new Object[arr.length + 1];
+        int count = 0;
+        arr1[arr.length] = newValue;
+
+        if (newValue == null) {
+            throw new NullPointerException();
+        }
+        while (count < arr.length) {
+            arr1[count] = arr[count];
+            count++;
+        }
+        arr = arr1;
     }
 
     public void pop() {
@@ -27,8 +42,21 @@ public abstract class ArrayProps<T> {
                 newArray[i] = array[i];
             }
         }
+        array = newArray;
+    }
 
-        array = (T[]) new Object[newArray.length];
+    public void delete(int index) {
+        T[] newArray = (T[]) new Object[array.length - 1];
+
+        try {
+            for (int i = 0; i < array.length; i++) {
+                if (i != index && array[i] != null) {
+                    newArray[i] = array[i];
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        }
         array = newArray;
     }
 

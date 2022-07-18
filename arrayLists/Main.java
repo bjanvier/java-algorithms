@@ -20,7 +20,7 @@ public class Main {
         System.out.println(list.get(0) + "here");
         System.out.println(list.isEmpty());
         System.out.println(list.contains("Zero"));
-        System.out.println(list.containsAll(new String[] { "Zero", "One", "Two2", "Three", "Four" }));
+        System.out.println(list.containsAll("Zero", "One", "Two2", "Three", "Four"));
         System.out.println(list);
     }
 }
