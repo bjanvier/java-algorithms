@@ -1,0 +1,46 @@
+Question 0: Football/Soccer or Basketball?
+
+SOCCER QUESTIONS
+
+Question 1: World Cup or UCL Champions League? -> (Football/Soccer)
+Question 3: Brazil(Br) or Argentina(Arg)? -> (WC)
+Question 2: Real Madrid(RM) or AC. Milan(ACM)? -> (UCL)
+Question 6: Ronaldo De Lima(R9) or Gaucho Ronaldhino(GR10)? ->  (Br)
+Question 7: Leo Messi(LM10) or Diego Maradona(DM10) -> (Arg)
+Question 4: Cristiano Ronaldo(CR7) or Zinedine Zidane(ZZ) -> (RM)
+Question 5: Paul Maldini(PM3) or Kaka -> (ACM)
+Question 8: Goals or Dribbles -> (R9)
+Question 9: Dribbles or Technicality -> (D10)
+
+
+BASKETBALL QUESTIONS
+
+Question 1: NBA or European Basketball League? -> (Basketball)
+Question 2: Los Angeles Lakers (LAL) or Boston Celtics? -> (NBA)
+Question 3: Leopards Basketball Team(D.R.CONGO) or USA Team? -> (EBL)
+Question 4: Lakers with Kobe Bryan(LKB) or Lakers with Lebron James(LLbj) -> (LAL)
+Question 5: Lakers 2008 vs GSW with KD -> (LKB)
+Question 5: Lebron in Lakers 2008 vs GSW with KD -> (LLbj)
+
+
+
+
+BALANCED TREE
+
+FIRST DATA IS A root,
+2 * size of the root is the 1st child = 2 data
+root = 1
+1st = 2
+2nd = 4
+3rd = 8
+4th = 16
+5th = 32 where each child has tuple children. That means we have 32/2 children here
+ World Cup or UCL Champions League? -> (Football/Soccer)
+ Brazil(Br) or Argentina(Arg)? -> (WC)
+ Real Madrid(RM) or AC. Milan(ACM)? -> (UCL)
+ Ronaldo De Lima(R9) or Gaucho Ronaldhino(GR10)? ->  (Br)
+ Leo Messi(LM10) or Diego Maradona(DM10) -> (Arg)
+ Cristiano Ronaldo(CR7) or Zinedine Zidane(ZZ) -> (RM)
+ Paul Maldini(PM3) or Kaka -> (ACM)
+ Goals or Dribbles -> (R9)
+ Dribbles or Technicality -> (D10)

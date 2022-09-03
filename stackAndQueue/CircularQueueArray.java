@@ -29,7 +29,6 @@ public class CircularQueueArray<T> {
     public void addFirst(T element) {
         T[] newArray = (T[]) new Object[array.length + 1];
         newArray[array.length] = element;
-
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }

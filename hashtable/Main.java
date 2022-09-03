@@ -44,7 +44,7 @@ public class Main {
                      * bucket[h] = [0:true];
                      * 
                      */
-                    System.out.print(lBuckets[i].get(j));
+                    System.out.println(lBuckets[i] + " => " + lBuckets[i].size() + ", ");
                 }
             }
         }
