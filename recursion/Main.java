@@ -6,7 +6,7 @@ import recursion.recursions.Permutations;
 public class Main {
   public static void main(String[] args) {
     Permutations permutations = new Permutations();
-    List<String> arr = permutations.getInput("janvierzagabe", 0, false);
+    List<String> arr = permutations.getInput("janvierzagabe", 0);
 
     System.out.println("Permutations");
     System.out.println("inputs List => " + arr.size());

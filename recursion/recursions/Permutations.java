@@ -7,7 +7,13 @@ public class Permutations {
     String userInput;
     List<String> inputsList = new ArrayList<>();
 
-    public List<String> getInput(String input, int index, Boolean complete) {
+    public void addPermutation(String[] strList) {
+        for (String str : strList) {
+            add(inputsList, str);
+        }
+    }
+
+    public List<String> getInput(String input, int index) {
         // Before the program starts, we will only have
         // on input to proceed with, and that's argument.
         if (!inputsList.contains(input)) {
@@ -15,7 +21,7 @@ public class Permutations {
         }
 
         if (inputsList.size() >= 10400 || index >= 10400 || index >= inputsList.size()) {
-            complete = true;
+            return inputsList;
         } else {
             for (int i = 0; i < inputsList.size(); i++) {
                 if (!inputsList.isEmpty() && inputsList.size() < 10400) {
@@ -32,9 +38,7 @@ public class Permutations {
                                 s2 + s1 + r, r + s1 + s2,
                                 r + s2 + s1
                         };
-                        for (String str : strList) {
-                            add(inputsList, str);
-                        }
+                        this.addPermutation(strList);
                     } else {
                         add(inputsList, input);
                         return inputsList;
@@ -47,12 +51,7 @@ public class Permutations {
                 }
             }
         }
-
-        if (!complete) {
-            getInput(input, index, complete);
-        }
-        // System.out.println(index);
-        // System.out.println(inputsList.size());
+        getInput(input, index);
         return inputsList;
     }
 
