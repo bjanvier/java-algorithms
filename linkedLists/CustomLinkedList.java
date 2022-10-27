@@ -37,11 +37,10 @@ public class CustomLinkedList<T> {
     }
 
     public Node<T> generateNode(T item, Node<T> node) {
-        if (node.data == null) {
+        if (node.data == null)
             node.data = item;
-
-            // Meaning next may be null
-        } else if (node.next == null) {
+        // Meaning next may be null
+        else if (node.next == null) {
             Node<T> nextNode = new Node<>(node.data, null);
             node.next = nextNode;
             node.data = item;
@@ -110,14 +109,9 @@ public class CustomLinkedList<T> {
     }
 
     public T get(int index) {
-        return getNext(index, node);
-    }
-
-    public T getNext(int index, Node<T> node) {
         int count = 0;
         Node<T> n = node;
-
-        while (index >= 1 && index >= count) {
+        while (index > count) {
             if (n.next == null) {
                 throw new NullPointerException();
             }

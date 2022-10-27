@@ -15,7 +15,8 @@ public class Main {
         list.add(8);
         list.add(90);
         list.addAt(390, 5);
-        System.out.println(list);
+        System.out.println(list.size());
+        System.out.println("list.size()");
 
         try {
             for (int i = 0; i < list.size(); i++) {
