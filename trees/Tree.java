@@ -3,6 +3,8 @@ package trees;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Tree {
     List<Object> nodeData = new ArrayList<>();
@@ -67,5 +69,25 @@ public class Tree {
         sb.append("]");
 
         return sb.toString();
+    }
+
+    public void BFS(Visitor v) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        boolean more = true;
+        while (more && q.size() > 0) {
+            Node n = q.remove();
+            more = v.visit(n.data);
+            if (more) {
+                for (Node c : n.children) {
+                    q.add(c);
+                }
+            }
+        }
     }
 }

@@ -13,14 +13,16 @@ public class Main {
         list.add(6);
         list.add(7);
         list.add(8);
-        list.add(90);
-        list.addAt(390, 5);
-        System.out.println(list.size());
-        System.out.println("list.size()");
+        list.add(9);
+        list.remove(4);
+        // list.addAt(390, 5);
+        System.out.println("Current Node" + list.size);
 
         try {
-            for (int i = 0; i < list.size(); i++) {
+            int i = list.size() - 1;
+            while (i >= 0) {
                 System.out.println(list.get(i));
+                i--;
             }
         } catch (Exception e) {
         }

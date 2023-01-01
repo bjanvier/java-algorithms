@@ -1,8 +1,8 @@
 package linkedLists;
 
 class Node<T> {
-    Node<T> next = null;
     T data;
+    Node<T> next = null;
 
     Node(T data, Node<T> next) {
         this.next = next;
@@ -36,26 +36,14 @@ public class CustomLinkedList<T> {
         return sb.toString();
     }
 
-    public Node<T> generateNode(T item, Node<T> node) {
-        if (node.data == null)
+    public void add(T item) {
+        if (node.data == null) {
             node.data = item;
-        // Meaning next may be null
-        else if (node.next == null) {
-            Node<T> nextNode = new Node<>(node.data, null);
-            node.next = nextNode;
-            node.data = item;
-        } else if (item != node.next.data && size > 1) {
-            node.next.data = node.data;
-            node.data = item;
+            node.next = null;
         }
         Node<T> next = node;
         node = new Node<>(item, next);
         size++;
-        return node;
-    }
-
-    public void add(T item) {
-        node = generateNode(item, node);
     }
 
     /**
@@ -109,14 +97,16 @@ public class CustomLinkedList<T> {
     }
 
     public T get(int index) {
-        int count = 0;
+        int count = index;
         Node<T> n = node;
-        while (index > count) {
+        // while (index > count) {
+        while (count > 0) {
             if (n.next == null) {
-                throw new NullPointerException();
+                // throw new NullPointerException("Node next is null");
+                System.out.println("Next node is null");
             }
             n = n.next;
-            count++;
+            count--;
         }
         return n.data;
     }
@@ -126,7 +116,58 @@ public class CustomLinkedList<T> {
     }
 
     public void remove(int index) {
-        // TODO document why this method is empty
+        if (index >= size) {
+            throw new NullPointerException();
+        }
+
+        int count = size - 1;
+        int i = index;
+        CustomLinkedList rightNodes = new CustomLinkedList<T>();
+        CustomLinkedList leftNodes = new CustomLinkedList<T>();
+        CustomLinkedList n = new CustomLinkedList<T>();
+        // Get the nodes before index
+        while (i > 0) {
+            leftNodes.add(this.get(count));
+            count--;
+            i--;
+        }
+
+        // Skip the node we are removing
+        int j = index + 2;
+        // Get the nodes after index by skipping
+        // the node that need to be removed
+        while (j <= size) {
+            count--;
+            rightNodes.add(get(count));
+            j++;
+        }
+
+        // Merge both nodes and update the current node
+        int l = leftNodes.size() - 1;
+        int r = rightNodes.size() - 1;
+
+        while (l >= 0) {
+            n.add(leftNodes.get(l));
+            l--;
+        }
+
+        while (r >= 0) {
+            n.add(rightNodes.get(r));
+            r--;
+        }
+
+        i = n.size() - 1;
+        System.out.println("Current new node: " + n.size);
+        while (i >= 0) {
+            System.out.println(n.get(i));
+            i--;
+        }
+        size = n.size();
+        this.setNode(n.node);
+    }
+
+    public void setNode(Node<T> n) {
+        node = n;
     }
 
     public void peek() {
